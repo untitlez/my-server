@@ -5,8 +5,6 @@ It can be deployed on [Render](https://render.com) and keeps your Unsplash API k
 
 ---
 
-## Project Structure
-
 ## Getting Started
 
 1. Clone & install dependencies
@@ -39,13 +37,13 @@ GET /api/exports/pdf → Export data as PDF (example)
 ```
 
 ## Deploy on Render
-
+```plaintext
 1. Create New Web Service → Connect my-server repo
 2. Add Environment Variables:
 - UNSPLASH_ACCESS_KEY
 - PORT (optional, Render assigns one automatically)
-
 Render will auto-deploy on push to main branch.
+```
 
 ## Project Structure
 ```plaintext
