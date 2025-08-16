@@ -4,15 +4,13 @@ exports.read = async (req, res) => {
     if (!query) res.send("No Query");
     console.log("query", query);
 
-    const apiUrl = `https://api.unsplash.com/search/photos?query=${query}&per_page=10&orientation=landscape&client_id=${
-      process.env.UNSPLASH_ACCESS_KEY
-    }`;
+    const apiUrl = `https://api.unsplash.com/search/photos?query=${query}&per_page=10&orientation=landscape&client_id=${process.env.UNSPLASH_ACCESS_KEY}`;
     const response = await fetch(apiUrl);
     const data = await response.json();
     if (!data.results) res.send("No Data");
     console.log("data", data);
 
-    const randomIndex = Math.floor(Math.random() * data.results.length)
+    const randomIndex = Math.floor(Math.random() * data.results.length);
     const imageUrl = data.results[randomIndex].urls.full;
     if (!imageUrl) res.send("No Images");
     console.log("imageUrl", imageUrl);
@@ -21,41 +19,5 @@ exports.read = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).send({ error: "Failed to fetch image" });
-  }
-};
-
-exports.list = async (req, res) => {
-  try {
-    res.send("Hello list endpoint");
-  } catch (error) {
-    console.log("error", error);
-    res.status(500).send("Server error");
-  }
-};
-
-exports.create = async (req, res) => {
-  try {
-    res.send("Hello create endpoint");
-  } catch (error) {
-    console.log("error", error);
-    res.status(500).send("Server error");
-  }
-};
-
-exports.update = async (req, res) => {
-  try {
-    res.send("Hello update endpoint");
-  } catch (error) {
-    console.log("error", error);
-    res.status(500).send("Server error");
-  }
-};
-
-exports.remove = async (req, res) => {
-  try {
-    res.send("Hello remove endpoint");
-  } catch (error) {
-    console.log("error", error);
-    res.status(500).send("Server error");
   }
 };

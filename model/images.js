@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const imagesSchema = mongoose.Schema(
+const testSchema = mongoose.Schema(
   {
     name: String,
     detail: {
@@ -13,4 +13,4 @@ const imagesSchema = mongoose.Schema(
   { timestamp: true }
 );
 
-module.exports = mongoose.model("images", imagesSchema);
+module.exports = mongoose.model("test", testSchema);
