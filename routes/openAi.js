@@ -1,8 +1,8 @@
 const express = require("express");
-const { pdf } = require("../controllers/exports");
+const { openAi } = require("../controllers/openAi");
 
 const router = express.Router();
 
-router.get("/exports", pdf);
+router.post("/openAi", openAi);
 
 module.exports = router;
