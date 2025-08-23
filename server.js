@@ -8,11 +8,13 @@ dotenv.config();
 connectDB();
 
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
 readdirSync("./routes").map((r) => app.use("/api", require("./routes/" + r)));
 
-app.listen(port);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
