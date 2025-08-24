@@ -1,7 +1,31 @@
-# my-server
+# My Server
 
-This is a **Node.js + Express** backend project that proxies requests to the [Unsplash API](https://unsplash.com/developers).  
-It can be deployed on [Render](https://render.com) and keeps your Unsplash API key secure.
+This is a Node.js + Express + MongoDB backend project for creating and managing lesson plans for teachers.
+It includes full CRUD operations, image search via Unsplash, JWT authentication with HTTP-only cookies, and AI-powered suggestions using outsourced AI services
+
+---
+
+## Features
+- Authentication & Authorization
+    - JWT stored in HTTP-only cookies
+    - Register, login, logout, role-based access (teacher/admin)
+- User Management
+    - Create, read, update, delete users
+- Subject Management
+    - Full CRUD operations for subjects
+- Lesson Plan Management
+    - Full CRUD operations
+    - Link lesson plans to subjects
+    - AI-assisted lesson suggestions
+- Image Search
+    - Integration with Unsplash API to add images to lesson plans
+- AI-powered Content Generation
+    - Outsourced AI for lesson ideas, summaries, or examples
+- Protected Routes & Security
+    - Auth middleware for secure endpoints
+    - CORS and environment variable management
+- Error Handling & Logging
+    - Centralized error handling for consistent API responses
 
 ---
 
@@ -49,13 +73,41 @@ Render will auto-deploy on push to main branch.
 ```plaintext
 my-server/
 ├── config/
-│   └── db.js           
-├── controllers/
-│   ├── exports.js      
-│   └── images.js       
-├── routes/
-│   ├── exports.js      
-│   └── images.js       
-├── .env                
-└── server.js
+│   └── db.js                   
+│
+├── controllers/                
+│   ├── auth.js
+│   ├── images.js
+│   ├── lesson-plan.js
+│   ├── openAi.js
+│   ├── subject.js
+│   └── user.js
+│
+├── middleware/                 
+│   └── auth.js                 
+│
+├── model/                      
+│   ├── lesson-plan.js
+│   ├── subject.js
+│   └── user.js
+│
+├── routes/                     
+│   ├── auth.js
+│   ├── images.js
+│   ├── lesson-plan.js
+│   ├── openAi.js
+│   ├── subject.js
+│   └── user.js
+│
+├── services/                   
+│   ├── auth.js
+│   ├── images.js
+│   ├── lesson-plan.js
+│   ├── openAi.js
+│   ├── subject.js
+│   └── user.js
+│
+├── .env                        
+├── package.json
+└── server.js                   
 ```
