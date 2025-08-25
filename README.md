@@ -5,7 +5,7 @@ It includes full CRUD operations, image search via Unsplash, JWT authentication 
 
 ---
 
-$$ ✨ Features
+## ✨ Features
 
 - 🔐 Authentication & Authorization
   - 🛡️ JWT stored in HTTP-only cookies
@@ -69,18 +69,17 @@ npm start
 http://localhost:5000 .
 ```
 
-## 🌐 API Endpoints
-```plaintext
-GET /api/images/search?query= → Search images from Unsplash
-GET /api/exports/pdf → Export data as PDF (example)
-```
-
-## 🌍 Deploy on Render
+## 🌐 Deploy on Render
 ```plaintext
 1. Create New Web Service → Connect my-server repo
 2. Add Environment Variables:
-- UNSPLASH_ACCESS_KEY
-- PORT (optional, Render assigns one automatically)
+  - PORT=
+  = NODE_ENV=
+  - UNSPLASH_ACCESS_KEY=
+  - DATABASE_URL=
+  - JWT_SECRET=
+  - OPENAI_API_KEY=
+
 Render will auto-deploy on push to main branch.
 ```
 
