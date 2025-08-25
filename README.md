@@ -70,7 +70,7 @@ npm start
 
 4. Open in Browser to test
 ```bash
-http://localhost:5000 .
+http://localhost:5000
 ```
 
 ## 🌐 Deploy on Render
