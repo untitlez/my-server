@@ -56,7 +56,11 @@ npm install
 2. Create .env
 ```env
 PORT=5000
+NODE_ENV=development
+DATABASE_URL=mongodb://localhost:27017/myserver
+JWT_SECRET=your_jwt_secret_key
 UNSPLASH_ACCESS_KEY=your_unsplash_access_key
+OPENAI_API_KEY=your_openai_api_key
 ```
 
 3. Run development server
@@ -73,13 +77,6 @@ http://localhost:5000 .
 ```plaintext
 1. Create New Web Service → Connect my-server repo
 2. Add Environment Variables:
-  - PORT=
-  = NODE_ENV=
-  - UNSPLASH_ACCESS_KEY=
-  - DATABASE_URL=
-  - JWT_SECRET=
-  - OPENAI_API_KEY=
-
 Render will auto-deploy on push to main branch.
 ```
 
