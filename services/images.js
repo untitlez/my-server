@@ -1,4 +1,4 @@
-exports.searchImages = async (query, perPage = 20) => {
+exports.searchImages = async (query, perPage = 10) => {
   const apiUrl = `https://api.unsplash.com/search/photos?query=${query}&per_page=${perPage}&orientation=landscape&client_id=${process.env.UNSPLASH_ACCESS_KEY}`;
   const response = await fetch(apiUrl);
   const data = await response.json();

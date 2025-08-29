@@ -5,7 +5,7 @@ exports.read = async (req, res) => {
     const { query } = req.query;
     if (!query) return res.json("No Query");
 
-    const results = await searchImages(query, 10);
+    const results = await searchImages(query, 20);
     if (!results) return res.json("No Data");
 
     const imageUrl = getRandom(results);

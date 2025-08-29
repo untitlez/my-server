@@ -15,6 +15,7 @@ const UserSchema = new mongoose.Schema(
       required: true,
       default: Role.MEMBER,
     },
+    fullName: { type: String },
   },
   { timestamps: true }
 );

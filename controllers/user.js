@@ -16,8 +16,9 @@ exports.read = async (req, res) => {
 
 exports.list = async (req, res) => {
   try {
+    const { _id } = req.user;
     const { id } = req.params;
-    if (!id) return res.status(400).json({ error: "No id provided" });
+    if (_id !== id) return res.status(400).json({ error: "No id provided" });
 
     const payload = await getUser(id);
     if (!payload) return res.status(404).json({ error: "Not found" });
@@ -39,7 +40,7 @@ exports.update = async (req, res) => {
     const payload = await updateUser(id, body);
     if (!payload) return res.status(404).json({ error: "Not found" });
 
-    return res.json(payload);
+    return res.json("Update success!");
   } catch {
     return res.status(500).json({ error: "Something went wrong" });
   }

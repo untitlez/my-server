@@ -3,7 +3,6 @@ const {
   getData,
   searchData,
   createData,
-  updateData,
   deleteData,
 } = require("../services/lesson-plan");
 
@@ -11,6 +10,17 @@ exports.read = async (req, res) => {
   try {
     const payload = await getAllData();
     return res.json(payload);
+  } catch {
+    return res.status(500).json({ error: "Something went wrong" });
+  }
+};
+
+exports.lated = async (req, res) => {
+  try {
+    const payload = await getAllData();
+    const lated = payload[payload.length - 1];
+
+    return res.json(lated);
   } catch {
     return res.status(500).json({ error: "Something went wrong" });
   }
@@ -48,26 +58,9 @@ exports.create = async (req, res) => {
     if (!body) return res.status(400).json({ error: "No body provided" });
 
     const payload = await createData(body);
-    return res.status(201).json(payload);
+    return res.status(201).json({ message: "Delete successful" }, payload);
   } catch {
     res.status(500).json({ error: "Something went wrong" });
-  }
-};
-
-exports.update = async (req, res) => {
-  try {
-    const { id } = req.params;
-    if (!id) return res.status(400).json({ error: "No id provided" });
-
-    const body = req.body;
-    if (!body) return res.status(400).json({ error: "No body provided" });
-
-    const payload = await updateData(id, body);
-    if (!payload) return res.status(404).json({ error: "Not found" });
-
-    return res.json(payload);
-  } catch {
-    return res.status(500).json({ error: "Something went wrong" });
   }
 };
 

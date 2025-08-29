@@ -1,7 +1,7 @@
 const { User } = require("../model/user");
 const bcrypt = require("bcryptjs");
 
-exports.loginUser = async ({ username, password }) => {
+exports.signinUser = async ({ username, password }) => {
   const services = await User.findOne({ username });
   if (!services) return null;
 
@@ -11,7 +11,7 @@ exports.loginUser = async ({ username, password }) => {
   return services;
 };
 
-exports.createUser = async (data) => {
+exports.signUpUser = async (data) => {
   const { username, password } = data;
   const checkUser = await User.findOne({ username });
   if (checkUser) return null;

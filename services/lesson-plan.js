@@ -25,10 +25,6 @@ exports.createData = async (data) => {
   return await LessonPlan.create(data);
 };
 
-exports.updateData = async (id, data) => {
-  return await LessonPlan.findByIdAndUpdate(id, data, { new: true });
-};
-
 exports.deleteData = async (id) => {
   return await LessonPlan.findByIdAndDelete(id);
 };

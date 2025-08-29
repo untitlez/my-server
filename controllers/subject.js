@@ -21,7 +21,7 @@ exports.create = async (req, res) => {
     if (!body) return res.status(400).json({ error: "No body provided" });
 
     const payload = await createData(body);
-    return res.status(201).json(payload);
+    return res.status(201).json({ message: "Create successful" }, payload);
   } catch {
     res.status(500).json({ error: "Something went wrong" });
   }
@@ -38,7 +38,7 @@ exports.update = async (req, res) => {
     const payload = await updateData(id, body);
     if (!payload) return res.status(404).json({ error: "Not found" });
 
-    return res.json(payload);
+    return res.json({ message: "Update successful" }, payload);
   } catch {
     return res.status(500).json({ error: "Something went wrong" });
   }
