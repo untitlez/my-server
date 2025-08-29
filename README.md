@@ -1,11 +1,50 @@
-# my-server
+# 🖥️ My Server (Backend)
 
-This is a **Node.js + Express** backend project that proxies requests to the [Unsplash API](https://unsplash.com/developers).  
-It can be deployed on [Render](https://render.com) and keeps your Unsplash API key secure.
+This is a Node.js + Express + MongoDB backend project for creating and managing lesson plans for teachers.
+It includes full CRUD operations, image search via Unsplash, JWT authentication with HTTP-only cookies, and AI-powered suggestions using outsourced AI services
 
 ---
 
-## Getting Started
+## ✨ Features
+
+- 🔐 Authentication & Authorization
+  - 🛡️ JWT stored in HTTP-only cookies
+  - 👤 Register, login, logout
+  - 🎓 Role-based access (teacher/admin)
+
+- 👥 User Management
+  - ➕ Create
+  - 👀 Read
+  - ✏️ Update
+  - 🗑️ Delete users
+
+- 📚 Subject Management
+  - 📝 Full CRUD operations for subjects
+
+- 📑 Lesson Plan Management
+  - 📝 Full CRUD operations
+  - 🔗 Link lesson plans to subjects
+  - 🤖 AI-assisted lesson suggestions
+
+- 🖼️ Image Search
+  - 🔍 Integration with Unsplash API to add images to lesson plans
+
+- 🤖 AI-powered Content Generation
+  - 💡 Lesson ideas
+  - 📝 Summaries
+  - 📖 Examples
+
+- 🛡️ Protected Routes & Security
+  - 🔑 Auth middleware for secure endpoints
+  - 🌍 CORS and environment variable management
+
+- ⚠️ Error Handling & Logging
+  - 🛠️ Centralized error handling
+  - 📜 Consistent API responses
+
+---
+
+## 🚀 Getting Started
 
 1. Clone & install dependencies
 ```bash
@@ -17,7 +56,11 @@ npm install
 2. Create .env
 ```env
 PORT=5000
+NODE_ENV=development
+DATABASE_URL=mongodb://localhost:27017/myserver
+JWT_SECRET=your_jwt_secret_key
 UNSPLASH_ACCESS_KEY=your_unsplash_access_key
+OPENAI_API_KEY=your_openai_api_key
 ```
 
 3. Run development server
@@ -27,35 +70,55 @@ npm start
 
 4. Open in Browser to test
 ```bash
-http://localhost:5000 .
+http://localhost:5000
 ```
 
-## API Endpoints
-```plaintext
-GET /api/images/search?query= → Search images from Unsplash
-GET /api/exports/pdf → Export data as PDF (example)
-```
-
-## Deploy on Render
+## 🌐 Deploy on Render
 ```plaintext
 1. Create New Web Service → Connect my-server repo
 2. Add Environment Variables:
-- UNSPLASH_ACCESS_KEY
-- PORT (optional, Render assigns one automatically)
 Render will auto-deploy on push to main branch.
 ```
 
-## Project Structure
+## 📂 Project Structure
 ```plaintext
 my-server/
 ├── config/
-│   └── db.js           
-├── controllers/
-│   ├── exports.js      
-│   └── images.js       
-├── routes/
-│   ├── exports.js      
-│   └── images.js       
-├── .env                
-└── server.js
+│   └── db.js                   
+│
+├── controllers/                
+│   ├── auth.js
+│   ├── images.js
+│   ├── lesson-plan.js
+│   ├── openAi.js
+│   ├── subject.js
+│   └── user.js
+│
+├── middleware/                 
+│   └── auth.js                 
+│
+├── model/                      
+│   ├── lesson-plan.js
+│   ├── subject.js
+│   └── user.js
+│
+├── routes/                     
+│   ├── auth.js
+│   ├── images.js
+│   ├── lesson-plan.js
+│   ├── openAi.js
+│   ├── subject.js
+│   └── user.js
+│
+├── services/                   
+│   ├── auth.js
+│   ├── images.js
+│   ├── lesson-plan.js
+│   ├── openAi.js
+│   ├── subject.js
+│   └── user.js
+│
+├── .env                        
+├── package.json
+└── server.js                   
 ```
