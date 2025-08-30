@@ -10,7 +10,7 @@ exports.getUser = async (id) => {
 
 exports.updateUser = async (id, data) => {
   return await User.findByIdAndUpdate(id, data, { new: true }).select(
-    "username role fullName"
+    "username role fullName",
   );
 };
 

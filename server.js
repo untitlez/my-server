@@ -16,17 +16,17 @@ app.use(
   cors({
     origin: process.env.DOMAIN,
     credentials: true,
-  })
+  }),
 );
 app.use(express.json());
 app.use(cookieParser());
 
 fs.readdirSync("./routes/public").map((r) =>
-  app.use("/api", require("./routes/public/" + r))
+  app.use("/api", require("./routes/public/" + r)),
 );
 
 fs.readdirSync("./routes/private").map((r) =>
-  app.use("/api", require("./routes/private/" + r), verifyToken, checkRole)
+  app.use("/api", require("./routes/private/" + r), verifyToken, checkRole),
 );
 
 app.listen(port, () => {

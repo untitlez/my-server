@@ -10,7 +10,7 @@ const LessonPlanSchema = new mongoose.Schema(
     assessment: { type: String },
     image: { type: String },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const LessonPlan = mongoose.model("LessonPlan", LessonPlanSchema);

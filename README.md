@@ -47,6 +47,7 @@ It includes full CRUD operations, image search via Unsplash, JWT authentication 
 ## 🚀 Getting Started
 
 1. Clone & install dependencies
+
 ```bash
 git clone https://github.com/untitlez/my-server.git
 cd my-server
@@ -54,6 +55,7 @@ npm install
 ```
 
 2. Create .env
+
 ```env
 PORT=5000
 NODE_ENV=development
@@ -64,16 +66,19 @@ OPENAI_API_KEY=your_openai_api_key
 ```
 
 3. Run development server
+
 ```bash
 npm start
 ```
 
 4. Open in Browser to test
+
 ```bash
 http://localhost:5000
 ```
 
 ## 🌐 Deploy on Render
+
 ```plaintext
 1. Create New Web Service → Connect my-server repo
 2. Add Environment Variables:
@@ -81,12 +86,13 @@ Render will auto-deploy on push to main branch.
 ```
 
 ## 📂 Project Structure
+
 ```plaintext
 my-server/
 ├── config/
-│   └── db.js                   
+│   └── db.js
 │
-├── controllers/                
+├── controllers/
 │   ├── auth.js
 │   ├── images.js
 │   ├── lesson-plan.js
@@ -94,15 +100,15 @@ my-server/
 │   ├── subject.js
 │   └── user.js
 │
-├── middleware/                 
-│   └── auth.js                 
+├── middleware/
+│   └── auth.js
 │
-├── model/                      
+├── model/
 │   ├── lesson-plan.js
 │   ├── subject.js
 │   └── user.js
 │
-├── routes/                     
+├── routes/
 │   ├── auth.js
 │   ├── images.js
 │   ├── lesson-plan.js
@@ -110,7 +116,7 @@ my-server/
 │   ├── subject.js
 │   └── user.js
 │
-├── services/                   
+├── services/
 │   ├── auth.js
 │   ├── images.js
 │   ├── lesson-plan.js
@@ -118,7 +124,7 @@ my-server/
 │   ├── subject.js
 │   └── user.js
 │
-├── .env                        
+├── .env
 ├── package.json
-└── server.js                   
+└── server.js
 ```
