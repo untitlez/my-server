@@ -3,14 +3,17 @@ const { signinUser, signUpUser } = require("../services/auth");
 
 exports.signin = async (req, res) => {
   try {
+    console.log("1")
     const { username, password } = req.body;
     if (!username || !password)
       return res.status(400).json({ error: "No username or password" });
+    console.log("2")
 
     const payload = await signinUser({ username, password });
     if (!payload) {
       return res.status(401).json({ error: "Invalid username or password" });
     }
+    console.log("3")
 
     const token = jwt.sign(
       {
@@ -22,6 +25,7 @@ exports.signin = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
+    console.log("4")
 
     res.cookie("token", token, {
       httpOnly: true,
