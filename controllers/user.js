@@ -18,7 +18,7 @@ exports.list = async (req, res) => {
   try {
     const { _id } = req.user;
     const { id } = req.params;
-    if (_id !== id) return res.status(400).json({ error: "No id provided" });
+    // if (_id !== id) return res.status(400).json({ error: "No id provided" });
 
     const payload = await getUser(id);
     if (!payload) return res.status(404).json({ error: "Not found" });
