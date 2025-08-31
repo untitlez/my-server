@@ -12,7 +12,7 @@ exports.signin = async (req, res) => {
       return res.status(401).json({ error: "Invalid username or password" });
     }
 
-    jwt.sign(
+    const token = jwt.sign(
       {
         _id: payload._id,
         username: payload.username,
@@ -23,7 +23,7 @@ exports.signin = async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    return res.json({ message: "Login success" });
+    return res.json({ message: "Login success", token });
   } catch {
     return res.status(500).json({ error: "Something went wrong" });
   }
