@@ -20,7 +20,7 @@ exports.signin = async (req, res) => {
         fullName: payload.fullName,
       },
       process.env.JWT_SECRET,
-      { expiresIn: "1h" },
+      { expiresIn: "1h" }
     );
 
     res.cookie("token", token, {
@@ -28,6 +28,7 @@ exports.signin = async (req, res) => {
       secure: process.env.NODE_ENV == "production",
       sameSite: process.env.NODE_ENV === "production" ? "none" : "Lax",
       maxAge: 60 * 60 * 1000,
+      path: "/",
     });
 
     return res.json({ message: "Login success" });
