@@ -12,7 +12,7 @@ exports.signin = async (req, res) => {
       return res.status(401).json({ error: "Invalid username or password" });
     }
 
-    const token = jwt.sign(
+    jwt.sign(
       {
         _id: payload._id,
         username: payload.username,
@@ -22,14 +22,6 @@ exports.signin = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
-
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV == "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "Lax",
-      maxAge: 60 * 60 * 1000,
-      path: "/",
-    });
 
     return res.json({ message: "Login success" });
   } catch {
