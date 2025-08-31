@@ -48,18 +48,3 @@ exports.signup = async (req, res) => {
     res.status(500).json({ error: "Something went wrong" });
   }
 };
-
-exports.signout = async (req, res) => {
-  try {
-    res.clearCookie("token", {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-      path: "/",
-    });
-
-    return res.status(200).json({ message: "Signed out successfully" });
-  } catch {
-    res.status(500).json({ error: "Something went wrong" });
-  }
-};
