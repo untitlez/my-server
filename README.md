@@ -88,43 +88,41 @@ Render will auto-deploy on push to main branch.
 ## 📂 Project Structure
 
 ```plaintext
-my-server/
+server/
 ├── config/
-│   └── db.js
+│   └── db.js                
 │
-├── controllers/
-│   ├── auth.js
-│   ├── images.js
-│   ├── lesson-plan.js
-│   ├── openAi.js
-│   ├── subject.js
-│   └── user.js
+├── controllers/              
+│   ├── auth.js              
+│   ├── images.js            
+│   ├── lesson-plan.js       
+│   ├── subject.js           
+│   └── user.js              
 │
-├── middleware/
-│   └── auth.js
+├── middleware/              
+│   └── auth.js              
 │
-├── model/
-│   ├── lesson-plan.js
-│   ├── subject.js
-│   └── user.js
+├── model/                   
+│   ├── lesson-plan.js       
+│   ├── subject.js           
+│   └── user.js              
 │
-├── routes/
-│   ├── auth.js
-│   ├── images.js
-│   ├── lesson-plan.js
-│   ├── openAi.js
-│   ├── subject.js
-│   └── user.js
+├── routes/                  
+│   ├── private/             
+│   │   ├── lesson-plan.js   
+│   │   ├── subject.js       
+│   │   └── user.js          
+│   └── public/              
+│       ├── auth.js          
+│       ├── guest.js         
+│       └── images.js        
 │
-├── services/
-│   ├── auth.js
-│   ├── images.js
-│   ├── lesson-plan.js
-│   ├── openAi.js
-│   ├── subject.js
-│   └── user.js
+├── services/                
+│   ├── auth.js              
+│   ├── images.js            
+│   ├── lesson-plan.js       
+│   ├── subject.js           
+│   └── user.js              
 │
-├── .env
-├── package.json
-└── server.js
+└── .env                     
 ```
